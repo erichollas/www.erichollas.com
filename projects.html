@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<head>
+<title>Eric Hollas Projects</title>
+<link rel="stylesheet" type="text/css" href="LinkedPortStyle.css">
+</head>
+<body>
+<!-- This is wrapper div object for the menu at the top of the screen -->
+	<div id="menu">
+		<div id="pic">
+			<img src="EH-Logo-Small.jpg" width="40" height="40">
+		</div>
+		<div id="menuLeft">
+			<p id="menuName">Eric Hollas</p>
+		</div>
+		<div id="menuRight">
+			<ul id="menuList">
+				<li id="menuLink"><a href="other.html">Other</a></li>
+				<li id="menuLink"><a href="projects.html">Projects</a></li>
+				<li id="menuLink"><a href="cs.html">Computer Science Background</a></li>
+				<li id="menuLink"><a href="index.html">Home</a></li>
+		</ul>
+		</div>
+		<div id="floatClear">
+		</div>
+	</div>
+
+<!-- This is wrapper div object for the projects section -->
+<!-- This section contains the h1 tag, a few h2 tags to label subsections, and h3 tag to label each sub-subsection for each project that will contain a <p> tag for info, a <br> tag for formatting, and a <iframe> tag to display a youtube video if possible. -->
+	<div id="content">
+		
+		<p id="centerP">Each part of these projects were done myself.</p>
+		<br></br>
+		<br></br>
+
+		<h1>Unreal Engine 4 Projects</h1>
+			<h2>Third Person Pac Man</h2>
+				<iframe width="550" height="413"
+					src="https://www.youtube.com/embed/oS4BWErChcc">
+				</iframe>
+				<ul id="vidDesc">
+					<p>Done using only Blueprint scripts and UE4.</p>
+					<p>The luminous, translucent ghosts chase or patrol. You... you run from them or lose.</p>
+					<p>Collect fiery tori for points and speed boosts. Don't collect enough in time, you'll be overrun.</p>
+					<p>The awesome UI minimap is done using its own camera object, which records to textures, and then updates the textures onto the user HUD.</p>
+					<p>There's a system of menus too! One for starting up, losing, and winning. The startup menu has sub menus for explaining the rules and objectives.</p>
+					<p>This project inspired me to study loads about graph data structures, graph traversal algorithms, and path finding AI techniques.</p>
+					<p>Download a zip of all the UE4 files <a href="https://drive.google.com/file/d/1FDnsudjjW6ot_yHK8S3oG6-Z8a5g84TW/view?usp=sharing" id="hyperLink" target="_blank">here</a>, or a zip of the files for a web build <a href="https://drive.google.com/file/d/1JRmNJyR7UehA5QVG8fogA3KYZT8K9QU1/view?usp=sharing" id="hyperLink" target="_blank">here</a>. These files are large.</p>
+				</ul>
+		
+				<div id="floatClear">
+				</div>
+
+			<br></br>
+			<br></br>
+			<br></br>
+			<br></br>
+				
+
+		<h1>Vulkan Projects</h1>
+			<br></br>
+			<br></br>
+
+			<h2>Vulkan Render Engine</h2>
+				<p><a href="https://github.com/erichollas/Games-Using-Vulkan/tree/master/VulkanRenderEngine" id="hyperLink" target="_blank">Source code found here on GitHub.</a></p>
+				<p>The Vulkan Render Engine is a simple rendering engine (well, simple for Vulkan). The overall goal of this project was to make something reusable.</p> 
+				<p>One way I saw to accomplishing this was to make an object that acted as an interface between the render engine and whatever program implements it. This object is the GeometryManager class (Not a singleton object).</p>
+				<p>This GeometryManager is a vector containing the vertices and indices to be loaded into vertex and index buffers and all of the offset locations for each object within the vertex and index buffers. This object will be passed by reference to the render engine object in any implementation, and the manager will be used to create and re-create the vertex buffer, index buffer, the offsets for the dynamic uniform buffer, and the drawing-by-index function in the command buffer object.</p>
+			<br></br>
+			<br></br>
+
+			
+			<h2>Multi-threaded Minesweeper</h2>
+				<iframe width="550" height="413"
+					src="https://www.youtube.com/embed/M7LyPDitTq8">
+				</iframe>
+				<ul id="vidDesc">
+					<p> <a href="https://github.com/erichollas/Games-Using-Vulkan/tree/master/MultithreadedMinesweeper" id="hyperLink" target="_blank">Source code found here on GitHub.</a></p>
+					<p>Done using C++ and the previously mentioned Vulkan Render Engine.</p>
+					<p>Clone of the classic minesweeper.</p>
+					<p>Multi-threaded algorithms are used to populate the board, calculate the number of adjacent mines, and reveal multiple tiles when clicked.</p>
+					<p>Check out the readme on my GitHub for the locations of where to find the code that is multithreaded.</p>
+					<p>In terms of of multithreading, not only was I concerned with performance, but I focused on how each thread creates its own memory and how to manage that memory.</p>
+					<p>This project to inspired me to study further on multithreading. I enjoy it greatly.</p>
+				</ul>
+				
+				<div id="floatClear">
+				</div>
+
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+
+
+				
+			<h2>State Machine 3D-PONG</h2>
+				<iframe width="550" height="413"
+					src="https://www.youtube.com/embed/cVegpEZbewA">
+				</iframe>
+				<ul id="vidDesc">
+					<p> <a href="https://github.com/erichollas/Games-Using-Vulkan/tree/master/StateMachine3DPong" id="hyperLink" target="_blank">Source code found here on GitHub.</a></p>
+					<p>Done using C++ and the previously mentioned Vulkan Render Engine.</p>
+					<p>Clone of the pong using 3D objects.</p>
+					<p>This game was meant as an exercise in finite state machines and having said FSMs communicate with one another.</p>
+					<p>The class structure is involved and uses a healthy amount of C++ templates.</p>
+					<p>This project inspired me to study different class designs and coding patterns.</p>
+				</ul>
+				
+				<div id="floatClear">
+				</div>
+
+				<br></br>
+				<br></br>
+				<br></br>
+				<br></br>
+				
+
+
+		<h1>This Portfolio Webpage</h1>
+			<p><a href="https://github.com/erichollas" id="hyperLink" target="_blank">Find source code here on my GitHub.</a></p>
+			<p>I did this website entirely myself and completely from scratch. I used HTML5, CSS, Javascript, and Photoshop. In prep for the site I did research into basic graphic design and color schemes. It is my intention that this site shows my eye for UI/UX design.</p>
+
+		<br></br>
+		<br></br>
+		<br></br>
+
+	</div>
+</body>
+</html>

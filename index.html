@@ -1,48 +1,7 @@
 <!DOCTYPE html>
 <head>
-<title>Portfolio of Eric Hollas</title>
+<title>Eric Hollas Portfolio</title>
 <link rel="stylesheet" type="text/css" href="PortfolioStyle.css">
-
-
-<!-- This is the Vertex shader for the gl-cnavas on the left of the webpage -->
-<!-- This is a script of GLSL code -->
-
-<script id="vertex-shader" type="x-shader/x-vertex">
-attribute vec4 vPosition;
-attribute vec4 vColor;
-
-uniform mat4 modelMatrix;
-
-varying vec4 fColor;
-
-void main(){
-	fColor = vColor;
-	gl_Position = modelMatrix * vPosition;
-}
-</script>
-
-
-<!-- This is the fragment shader for the gl-cnavas on the left of the webpage -->
-<!-- This is a script of GLSL code -->
-
-<script id="fragment-shader" type="x-shader/x-fragment">
-precision mediump float;
-
-varying vec4 fColor;
-
-void main(){
-	gl_FragColor = fColor;
-}
-</script>
-
-
-<!-- This script loads the needed scrit files for the gl-canvas on the left of the webpage -->
-<script type="text/javascript" src="webgl-utils.js"></script>
-<script type="text/javascript" src="initShaders.js"></script>
-<script type="text/javascript" src="MV.js"></script>
-<script type="text/javascript" src="gasket.js"></script>
-
-
 
 </head>
 
@@ -53,127 +12,35 @@ void main(){
 
 <!-- This is wrapper div object for the menu at the top of the screen -->
 	<div id="menu">
-		<ul>
-			<li><a href="#resume">Resume</a></li>
-			<li><a href="#websites">Other Websites</a></li>
-			<li><a href="#projects">Projects</a></li>
-			<li><a href="#about_me">About Me</a></li>
+		<div id="pic">
+			<img src="EH-Logo-Small.jpg" width="40" height="40">
+		</div>
+		<div id="menuLeft">
+			<p id="menuName">Eric Hollas</p>
+		</div>
+		<div id="menuRight">
+			<ul id="menuList">
+				<li id="menuLink"><a href="other.html">Other</a></li>
+				<li id="menuLink"><a href="projects.html">Projects</a></li>
+				<li id="menuLink"><a href="cs.html">Computer Science Background</a></li>
+				<li id="menuLink"><a href="index.html">Home</a></li>
 		</ul>
+		</div>
+		<div id="floatClear">
+		</div>
 	</div>
 
-<!-- This is canvas at the left of the webpage to display the WebGL animation -->
-	<canvas id="gl-canvas" widht="250" height="570">
-		Oops ... your browser doesn't support the HTML5 canvas element
-	</canvas>
+
 
 
 <!-- This is wrapper div object for the title below the menu -->
-	<div id="title_bar">
-		<h1 id="Title">ERIC HOLLAS</h1>
-		<p id="subtitle">GAMEPLAY PROGRAMMER / SOFTWARE ENGINEER</p>
-	</div>
-
-<!-- This is wrapper div object for the about me section -->
-<!-- This section contains the h1 tag, a few h2 tags to label subsections, and a <p> tag to fill the input for each subsection -->
-	<div id="about_me">
-
-		<h1>About Me</h1>
-		<h2>Mathematics Education and Research</h2>
-			<p>My B.S. degree was in Mathematics and a minor in Physics from The University of Texas at San Antonio. I also took a few graduate classes and did some work towards a thesis in the Mathematics department and Physics department at Texas Tech University.</p>
-			<p>To put it simply, Calculus III inspired most of my time at these schools. In graduate school I enjoyed many sleepless nights studying the mathematical forms found in Differential Geometry, Algebraic Topology, and Tensor Geometry and how these forms so naturally define the rules of physics, especially conservation laws. My thesis, by the direction of my professor's research area, was going to be on the properties and use of isometries between hyperbolic surfaces. The purpose of this research was to re-parametrize complicated surfaces that are not integrable to be integrable and maintain their geometric properties, particularly surfaces arising in partial differential equations. This mathematics research has implications in Relativistic, Lagrangian Dynamics, and the Calculus of Variations. Unfortunately I was unable to finish this thesis.</p>
-		<h2>Passion for Textbooks</h2>
-			<p>Over the years as a student I have amassed a modest collection of textbooks. I love getting and reading new texts every chance I get. At any given time I will be reading through at least one textbook. Currently I am rereading my <a href="https://www.amazon.com/Classical-Mechanics-3rd-Herbert-Goldstein/dp/0201657023" id="hyperLink" target="_blank">Classical Mechanics</a> book from graduate school. (The link is to the textbooks on Amazon)</p>
-		<h2>Currently in Progress</h2>
-			<p>I could go on all day about math and physics, but when it comes to works in progress the obvious one is becoming the best C++ ninja possible! Currently I am finishing up intensive tutorials on the Unreal and Unity game engines. I hope to finish an original game done on the Unreal game engine by the middle of August. After that I will start programming original games with Unity game engine and hone my game-AI programming skills.</p>
-
-	</div>
-
-
-<!-- This is wrapper div object for the projects section -->
-<!-- This section contains the h1 tag, a few h2 tags to label subsections, and h3 tag to label each sub-subsection for each project that will contain a <p> tag for info, a <br> tag for formatting, and a <iframe> tag to display a youtube video if possible. -->
-	<div id="projects">
-
-		<h1>Projects</h1>
-		<h2>Games in Vulkan</h2>
-
-			<h3>Vulkan Render Engine</h3>
-			<p>The Vulkan Render Engine is a simple rendering engine (well, simple for Vulkan). The overall goal of this project was to make something reusable. One way I saw to accomplishing this was to make an object that acted as an interface between the render engine and whatever program implements it. This object is the GeometryManager class (Not a singleton object). This object is a vector containing the vertices and indices to be loaded into vertex and index buffers and all of the offset locations for each object within the vertex and index buffers. This object will be passed by reference to the render engine object in any implementation, and the manager will be used to create and re-create the vertex buffer, index buffer, the offsets for the dynamic uniform buffer, and the drawing-by-index function in the command buffer object.</p>
-			<p>The source code for this project can be found on my <a href="https://github.com/erichollas/Games-Using-Vulkan/tree/master/VulkanRenderEngine" id="hyperLink" target="_blank">GitHub</a>.</p>
-			<br></br>
-			<br></br>
-
-		<iframe width="420" height="315"
-			src="https://www.youtube.com/embed/M7LyPDitTq8">
-		</iframe>
-			<h3>Multi-threaded Minesweeper</h3>
-			<p>As far as game mechanics, this clone of minesweeper will follow the classical game of minesweeper. This game is an instance of a game that implements the Vulkan Render Engine.</p>
-			<p>The overall goal of this project was to implement multi-threaded algorithms in a game setting. I was inspired by a textbook called <a href="https://www.amazon.com/C-Concurrency-Action-Practical-Multithreading/dp/1933988770" id="hyperLink" target="_blank">C++ Concurrency in Action: Practical Multithreading, by Anthony Williams</a> to design thread safe functions. This book goes much deeper than the usual issues that arise in multi-threading programming like data races, and it is also mindful of the memory space needed for each of the threads. Thus, this project made for a good exercise in implementing multi-threaded algorithms with regards to thread safety as well as each threads’ memory space.</p>
-			<p>The source code for this project can be found on my <a href="https://github.com/erichollas/Games-Using-Vulkan/tree/master/MultithreadedMinesweeper" id="hyperLink" target="_blank">GitHub</a>. Where to find the callable function, two lambdas, and the rest of the multi-threaded code will be listed on the associated readme file for the project.</p>
-			<br></br>
-			<br></br>
-
-
-		<iframe width="420" height="315"
-			src="https://www.youtube.com/embed/cVegpEZbewA">
-		</iframe>
-			<h3>State Machine 3D-PONG</h3>
-			<p>The game logic in this clone of PONG is the same from the classical game of PONG. This version is presented in 3D and is another game to implement the Vulkan Render Engine. However, the main goal of this project is to implement FSM's that communicate with one another. Unnecessary for pong.... perhaps, but an exercise nonetheless.</p>
-			<p>The design of the FSMs follow the design described in chapter 2 of Mat Buckland's game AI text book, which can be found <a href="https://www.amazon.com/Programming-Example-Wordware-Developers-Library/dp/1556220782" id="hyperLink" target="_blank">here</a>. The character classes inherit from a base class and contain a StateMachine object as a class member. The StateMachine object is a template class that runs the runCycle() method, or update() method, for their respective class object. The StateMachine object also handles the messages sent between characters via the Messanger, a static singleton class. The states are singletons that inherit from a base template class, and the states define the execute methods and onMessage events. In this implementation, the onMessage events are collisions between the paddle and ball characters and the score changes. All of these characters are added into the ChraracterManager object, which acts as the data structure of the characters. The CharacterManager will keep track of the uniform matrices for each character and run runCycle() function each pass through the main game loop.</p>
-			<p>The source code for this project can be found on my <a href="https://github.com/erichollas/Games-Using-Vulkan/tree/master/StateMachine3DPong" id="hyperLink" target="_blank">GitHub</a>.</p>
-			<br></br>
-
-
-		<h2>This Portfolio Webpage</h2>
-			<p>Obviously if you are reading this, then you are enjoying the design of my website. The source code that I wrote for this website, including the graphic on the left side, of the page can be found on my <a href="https://github.com/erichollas" id="hyperLink" target="_blank">GitHub</a>. But I must mention with special thanks to Edward Angel for the source code to initialize WebGL, which is free for download on the GitHub associated with his textbook on Interactive Graphics with WebGL. Edward Angel's textbook, which is sold <a href="https://www.amazon.com/Interactive-Computer-Graphics-Top-Down-Approach/dp/0133574849" id="hyperLink" target="_blank">here</a>, is a fantastic textbook for the foundational mathematics used in most, if not all, rendering pipelines.</p>
-
+	<div id="Logo">
+		<img src="EH-Logo.jpg" width="500" height="600" id="decal">
 	</div>
 
 
 
-<!-- This is wrapper div object for the websites section -->
-<!-- This section contains the links to other websites I am on -->
-	<div id="websites">
 
-		<h1>Other Websites</h1>
-		<p id="link">My <a href="https://www.linkedin.com/in/eric-hollas-a2b711151/" id="hyperLink" target="_blank">LinkedIn</a> page.</p>
-		<p id="link">On my <a href="https://github.com/erichollas?tab=repositories" id="hyperLink" target="_blank">GitHub</a> page you will find the repositories containing all of the source code for my projects.</p>
-		<p id="link">My <a href="https://www.youtube.com/channel/UCkxzRzxlGX2QaqOIHMNjJng?view_as=subscriber" id="hyperLink" target="_blank">YouTube</a> page has the video screen captures of each of my projects that are coded in C++.</p>
-
-	</div>
-
-
-<!-- This is wrapper div object for the resume section -->
-<!-- This section contains the h1 tag for the title of the section and several h2 and p tags for subsections and info to be formatted by the css file to display my resume -->
-	<div id="resume">
-		<h1>Resume</h1>
-		<h2>Education</h2>
-			<p id="school">The University of Texas at San Antonio</p>
-			<p id="school_dates">August 2010 to May 2014</p>
-			<p id="school_degree">Bachelor of Science in Mathematics with Minor in Physics</p>
-			<br></br>
-			<p id="school">Texas Tech University</p>
-			<p id="school_dates">August 2014 to October 2015</p>
-			<p id="school_degree">With GPA of 3.25, completed 12 hours towards a Master of Science in Mathematics with Graduate-Minor in Physics</p>
-			<br></br>
-			<p id="school">Dallas County Community College Online</p>
-			<p id="school_dates">May 2016 to May 2017</p>
-			<p id="school_degree">With GPA of 4.00, completed 16 hours in Computer Science, including Data Structures and Computer Organization</p>
-			<br></br>
-		<h2>Languages</h2>
-			<p>Java, C, C++, C#, GLSL, HLSL, HTML5/CSS/Javascript, and MASM32</p>
-		<h2>Game Engines</h2>
-			<p>Unity and Unreal(including blueprints)</p>
-		<h2>Graphics API’s</h2>
-			<p>WebGL, OpenGL, Vulkan, and familiar with the initialization process of DirectX 12</p>
-		<h2>Significant College Computer Science Related Courses</h2>
-			<p>Computer Organization, Data Structures, and Graduate-Level Mathematics course on Cryptography (we covered the math behind Diffie-Hellman Key Exchanges, RSA, El-Gamal, Digital Signatures, and Claude Shannon’s Information Theory (or Complexity Theory).</p>
-	</div>
-
-
-<!-- This is wrapper div object for a very basic footer at the bottom of the webpage -->
-	<div id="Footer">
-		<p>Copyright by Eric Hollas 2018</p>
-	</div>
 
 </body>
 </html>
